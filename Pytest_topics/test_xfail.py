@@ -12,7 +12,8 @@ def test_str04():
     letters = 'abcdefghijklmnopqrstuvwxyz'
     assert letters[10]
 
-@pytest.mark.xfail(sys.platform=='win32', reason="works only in win32")
+@pytest.mark.xfail(sys.platform=='darwin', reason="works only on linux, not macOS")
+# @pytest.mark.xfail(raises=TypeError, reason="can't concat str and num")
 def test_str05():
     letters = 'abcd'
     num = 1234

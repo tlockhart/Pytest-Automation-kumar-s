@@ -1,6 +1,7 @@
 import pytest
 pytestmark = [pytest.mark.smoke, pytest.mark.strtest]
 
+# run on test, or marked as sanity
 @pytest.mark.sanity
 def test_str01():
     num = 9/4
@@ -36,7 +37,8 @@ def test_strsplit():
 
 # tasks TBD
 def test_strjoin():
-    pass
     s1 = 'Python,Pytest and Automation'
     l1 = ['Python,Pytest', 'and', 'Automation']
     l2 = ['Python', 'Pytest and Automation']
+    assert ' '.join(l1) == s1
+    assert ','.join(l2) == s1
