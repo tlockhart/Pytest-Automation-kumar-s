@@ -110,10 +110,16 @@ This avoids the mismatch because template0 is a barebones template.
 ## pytest Pytest_topics/test_markers.py -v -m "not sanity"
 ## pytest Pytest_topics/test_markers.py -v -m "str and sanity"
 ## pytest Pytest_topics/test_markers.py -v -m "str or sanity"
-## Run all the tests in the module: pytest Pytest_topics/test_markers.py -v -m "smoke"
+## Run all the tests in the module (-v = verbose): pytest Pytest_topics/test_markers.py -v -m "smoke"
 ### To get rid of warning create pytest.ini file in the package root (not the tests folder)and add an option for all pytest markers
 ## pytest Pytest_topics/test_xfail.py
 ## run test that include partial directory and filename (module) based on expression with -k:  pytest -v -k "Pytest_topics and module"
-## run without stack trace in output: pytest -v -k "Pytest_topics and module" --tb=no
+## --tb (traceback) run without stack trace in output: pytest -v -k "Pytest_topics and module" --tb=no
 ### pytest -v -k "Pytest_topics and module and not case" --tb=no
+## come out of execution on first fail:  pytest -v -k "Pytest_topics and module and not case" --tb=no -x
+## --maxfail: Stop after specified max fail: pytest -v -k "module and not case" --tb=no -x --maxfail=2
+## -q quiet execution (when running on a jenkins server) 
+## --collect-only, --co only collect the tests, don't execute them: pytest -v -k "module and not case" --tb=no -x --collect-only
+## --lf (only execute the last tests that failed - to see if they are resolved): pytest -v -k "module and not case" --tb=no -x --lf
+## --ff (exectue all tests, but run the last failures first): pytest -v -k "module and not case" --tb=no -x --ff
 
