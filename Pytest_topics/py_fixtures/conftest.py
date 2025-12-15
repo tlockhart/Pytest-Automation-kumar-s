@@ -1,15 +1,17 @@
 import pytest
+from ..my_fixtures.block_fixtures import block01, block02
 
 def pytest_configure():
     pytest.weekdays1 = ['mon', 'tue', 'wed']
     pytest.weekdays2 = ['fri', 'sat', 'sun']
-
+    pytest.filename = 'file1.txt'
+    
 @pytest.fixture(scope="module")
 def setup01():
-    wk = pytest.weekdays1.copy()
-    wk.append('thur')
-    yield wk
-    print ("\n Fixture setup01 closing \n")
+    pytest.weekdays1.append("thur")
+    yield pytest.weekdays1
+    print("\n After yield in setup01 fixture")
+    pytest.weekdays1.pop()
 
 
 @pytest.fixture(scope="session")

@@ -21,6 +21,7 @@ def test_reverseList(setup_list):
 
 @pytest.mark.xfail(reason="known issue: usefixtures cannot use the fixture’s return value")
 @pytest.mark.usefixtures("setup_list")
+# @pytest.mark.usethisdemo
 def test_usefixturedemo():
     assert 1 == 1
     assert (setup_list[0])

@@ -112,7 +112,7 @@ This avoids the mismatch because template0 is a barebones template.
 ## pytest Pytest_topics/test_markers.py -v -m "str or sanity"
 ## Run all the tests in the module (-v = verbose): pytest Pytest_topics/test_markers.py -v -m "smoke"
 ### To get rid of warning create pytest.ini file in the package root (not the tests folder)and add an option for all pytest markers
-## pytest Pytest_topics/test_xfail.py
+## pytest Pytest_topics/test_xfail.py (expected fail)
 ## run test that include partial directory and filename (module) based on expression with -k:  pytest -v -k "Pytest_topics and module"
 ## --tb (traceback) run without stack trace in output: pytest -v -k "Pytest_topics and module" --tb=no
 ### pytest -v -k "Pytest_topics and module and not case" --tb=no
@@ -123,3 +123,11 @@ This avoids the mismatch because template0 is a barebones template.
 ## --lf (only execute the last tests that failed - to see if they are resolved): pytest -v -k "module and not case" --tb=no -x --lf
 ## --ff (exectue all tests, but run the last failures first): pytest -v -k "module and not case" --tb=no -x --ff
 
+## simple test commands:
+### Only pass/fail lines (no tracebacks): pytest -q -k "parametrize"
+### Only failures summarized at the end (short): (no tracebacks): pytest -q --tb=short -k "parametrize"
+### No traceback at all (just FAIL): pytest -q --tb=no -k "parametrize"
+### Just the final counts (cleanest): pytest -qq -k "parametrize"
+### Recommended for learning runs: pytest -q --tb=no
+### Run with a file name: pytest -q --tb=no  "parametrize"
+### Single testcase in a file: pytest -q --tb=no test_paramterize.py::test_param01
