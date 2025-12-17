@@ -10,11 +10,11 @@ def pytest_configure():
 def setup01():
     pytest.weekdays1.append("thur")
     yield pytest.weekdays1
-    print("\n After yield in setup01 fixture")
-    pytest.weekdays1.pop()
+    print("\n After yield in setup01 fixture, closing")
+    # pytest.weekdays1.pop()
 
-
-@pytest.fixture(scope="session")
+@pytest.fixture()
+# @pytest.fixture(scope="session")
 def setup02():
     wk2 = pytest.weekdays2.copy()
     wk2.insert(0,'thur')
