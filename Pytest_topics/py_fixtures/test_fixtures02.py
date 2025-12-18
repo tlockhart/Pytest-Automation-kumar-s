@@ -7,10 +7,10 @@ import os
 
 @pytest.fixture(scope="module")
 def setup01():
-    pytest.pytest.weekdays1.append('thur')
-    yield pytest.pytest.weekdays1
+    pytest.weekdays1.append('thur')
+    yield pytest.weekdays1
     print ("\n After yield in setup01 fixture")
-    pytest.pytest.weekdays1.pop()
+    pytest.weekdays1.pop()
 
 @pytest.fixture()
 def setup02():

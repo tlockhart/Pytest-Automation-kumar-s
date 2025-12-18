@@ -11,5 +11,5 @@ def block01():
 
 @pytest.fixture()
 def block02():
-    pytest.weekdays2.insert(0, "thur")
+    # pytest.weekdays2.insert(0, "thur")
     yield pytest.weekdays2
